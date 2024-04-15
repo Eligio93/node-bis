@@ -5,7 +5,6 @@ import fs from 'fs'
 
 http.createServer(function (req, res) {
   let baseUrl = new URL(req.url, 'http://localhost:8080');
-  console.log(baseUrl.pathname)
   if (baseUrl.pathname == '/') {
     fs.readFile('index.html', function (err, data) {
       res.writeHead(200, { 'Content-Type': 'text/html' });
@@ -26,7 +25,6 @@ http.createServer(function (req, res) {
         res.write(data);
         return res.end();
       }
-
     })
   }
 }).listen(8080);
